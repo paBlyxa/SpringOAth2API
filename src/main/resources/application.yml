@@ -1,0 +1,29 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: github-client-id
+            client-secret: github-client-secret
+          google:
+            client-id: google-client-id
+            client-secret: google-client-secret
+          bitrix:
+            client-id: bitrix-client-id
+            client-secret: bitrix-client-secret
+            scopes: user
+            authorization-grant-type: authorization_code
+            redirect-uri: http://localhost:8080/login/oauth2/code/bitrix
+        provider:
+          bitrix:
+            authorization-uri: https://PORTAL.bitrix24.com/oauth/authorize/
+            token-uri: https://oauth.bitrix.info/oauth/token/
+            user-info-uri: https://PORTAL.bitrix24.com/rest/user.current
+            user-name-attribute: result
+          google:
+            user-name-attribute: name
+logging:
+  level:
+    root: info
+# ...
